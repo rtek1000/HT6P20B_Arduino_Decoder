@@ -10,4 +10,5 @@
   - After receiving all 28 bits, the final 4 bits ("anti-code period", see HT6P20B datasheet for details)
     are tested to verify that the code was received correctly.
   - If received correctly it sets the antcode variable to 1, and the _data2 variable receives the content of the _data variable.
+  (Note: The RF receiver (for example 433MHz) needs to be connected to the external interrupt pin)
   (Note: For HT6P20A and HT6P20D the code may need to be modified)
