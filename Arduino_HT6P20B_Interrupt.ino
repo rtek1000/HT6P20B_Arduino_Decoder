@@ -50,7 +50,7 @@ volatile int x, startbit, startbit1, ctr, dataok, t1, pulse_width, pulse_width1,
 // _data: the code stored from the HT6P20B, all 28 bits, where: 20 bits to "address code" + 4 bits to "data code" + 4 bits to "anti-code".
 // _data2: the code stored from the HT6P20B, only 24 bits, where: 20 bits to "address code" + 4 bits to "data code"
 volatile unsigned long _data, _data2 = 0;
-volatile unsigned long _dur, _dur1; // Pulse duration (pulse width)
+volatile unsigned long _width, _width1; // Pulse duration (pulse width)
 
 #define PPM_Pin 2 // Pin that will receive the digital RF signal. This must be 2 or 3 for UNO (ATmega328p), interrupt pin 0 or 1
 
@@ -460,17 +460,17 @@ void read_ppm() { // leave this alone
   counter = TCNT1; // Add the number of cycles
   TCNT1 = 0;
 
-  _dur = counter;
+  _width = counter;
 
   // Test pilot time to start bit;
-  if (_dur > 20000 && _dur < 24000 && startbit == 0) {
-    pulse_width = _dur / 23;
+  if (_width > 20000 && _width < 24000 && startbit == 0) {
+    pulse_width = _width / 23;
     pulse_width1 = pulse_width - 150;
     pulse_width2 = pulse_width + 150;
     pulse_width3 = pulse_width + pulse_width - 150;
     pulse_width4 = pulse_width + pulse_width + 150;
     startbit = 1;
-    _dur = 0;
+    _width = 0;
     _data = 0;
     dataok = 0;
     ctr = 0;
@@ -485,11 +485,11 @@ void read_ppm() { // leave this alone
     startbit++;
   } else if (startbit == 2 && dataok == 0 && ctr < 28 && digitalRead(2) == HIGH) { // If it has a valid start bit
     ++ctr;
-    _dur1 = counter;
+    _width1 = counter;
 
-    if (_dur1 > pulse_width1 && _dur1 < pulse_width2) { // If the pulse width is between 1/4000 and 1/3000 second
+    if (_width1 > pulse_width1 && _width1 < pulse_width2) { // If the pulse width is between 1/4000 and 1/3000 second
       _data = (_data << 1) ; // Append a *1* to the rightmost end of the buffer
-    } else if (_dur1 > pulse_width3 && _dur1 < pulse_width4) { // If the pulse width is between 2/4000 and 2/3000 seconds
+    } else if (_width1 > pulse_width3 && _width1 < pulse_width4) { // If the pulse width is between 2/4000 and 2/3000 seconds
       _data = (_data << 1) + 1; // Append a *0* to the rightmost end of the buffer
     } else {
       startbit = 0; // Force loop termination
