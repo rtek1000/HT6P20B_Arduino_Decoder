@@ -54,12 +54,12 @@ volatile unsigned long _width, _width1; // Pulse width
 
 #define PPM_Pin 2 // Pin that will receive the digital RF signal. This must be 2 or 3 for UNO (ATmega328p), interrupt pin 0 or 1
 
-#define Out_1_pin 4       // Output for relay or LED indicator, button 1 (Need to use driver) 
-#define Out_2_pin 5       // Output for relay or LED indicator, button 2 (Need to use driver) 
-#define Out_3_pin 6       // Output for relay or LED indicator, button 3 (Need to use driver) 
-#define Out_long_pin 7    // Output for relay or LED indicator, long press (Need to use driver) 
+#define Out_1_pin 4       // Output for relay or LED indicator, button 1. (Need to use driver) 
+#define Out_2_pin 5       // Output for relay or LED indicator, button 2. (Need to use driver) 
+#define Out_3_pin 6       // Output for relay or LED indicator, button 3. (Need to use driver) 
+#define Out_long_pin 7    // Output for relay or LED indicator, long press. (Need to use driver) 
 #define Learn_pin 8       // Input for learn function / clear function (erase all)
-#define LED_learn_pin 13  // Output for relay or LED indicator, learn function / clear function (erase all) / receiver function (Need to use driver) 
+#define LED_learn_pin 13  // Output for relay or LED indicator, learn function / clear function (erase all) / receiver function. (Need to use driver) 
 
 bool Learn_pin_old = true;
 
