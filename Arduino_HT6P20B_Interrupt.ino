@@ -8,7 +8,7 @@
     if the "code period" is not within the previously measured range, reset the variables and restart,
   - After receiving all 28 bits, the final 4 bits ("anti-code period", see HT6P20B datasheet for details)
     are tested to verify that the code was received correctly.
-  - If received correctly it sets the antcode variable to 1, and the _data2 variable receives the content of the _data variable.
+  - If received correctly it sets the antcode variable to 1, and the _data2 variable receives the content of the _data variable, without the final 4 bits.
   (Note: For HT6P20A and HT6P20D the code may need to be modified)
 
   Created by: Jacques Daniel Moresco
