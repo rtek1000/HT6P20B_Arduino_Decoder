@@ -46,7 +46,7 @@
 #define SERIAL_ON 1
 // #define DEBUG_ON 1
 
-volatile int x, startbit, startbit1, ctr, dataok, t1, larpulso, larpulso1, larpulso2, larpulso3, larpulso4, bt1, bt2, antcode = 0;
+volatile int x, startbit, startbit1, ctr, dataok, t1, pulse_width, pulse_width1, pulse_width2, pulse_width3, pulse_width4, bt1, bt2, antcode = 0;
 // _data: the code stored from the HT6P20B, all 28 bits, where: 20 bits to "address code" + 4 bits to "data code" + 4 bits to "anti-code".
 // _data2: the code stored from the HT6P20B, only 24 bits, where: 20 bits to "address code" + 4 bits to "data code"
 volatile unsigned long _data, _data2 = 0;
@@ -464,11 +464,11 @@ void read_ppm() { // leave this alone
 
   // Test pilot time to start bit;
   if (_dur > 20000 && _dur < 24000 && startbit == 0) {
-    larpulso = _dur / 23;
-    larpulso1 = larpulso - 150;
-    larpulso2 = larpulso + 150;
-    larpulso3 = larpulso + larpulso - 150;
-    larpulso4 = larpulso + larpulso + 150;
+    pulse_width = _dur / 23;
+    pulse_width1 = pulse_width - 150;
+    pulse_width2 = pulse_width + 150;
+    pulse_width3 = pulse_width + pulse_width - 150;
+    pulse_width4 = pulse_width + pulse_width + 150;
     startbit = 1;
     _dur = 0;
     _data = 0;
@@ -487,9 +487,9 @@ void read_ppm() { // leave this alone
     ++ctr;
     _dur1 = counter;
 
-    if (_dur1 > larpulso1 && _dur1 < larpulso2) { // If the pulse width is between 1/4000 and 1/3000 second
+    if (_dur1 > pulse_width1 && _dur1 < pulse_width2) { // If the pulse width is between 1/4000 and 1/3000 second
       _data = (_data << 1) ; // Append a *1* to the rightmost end of the buffer
-    } else if (_dur1 > larpulso3 && _dur1 < larpulso4) { // If the pulse width is between 2/4000 and 2/3000 seconds
+    } else if (_dur1 > pulse_width3 && _dur1 < pulse_width4) { // If the pulse width is between 2/4000 and 2/3000 seconds
       _data = (_data << 1) + 1; // Append a *0* to the rightmost end of the buffer
     } else {
       startbit = 0; // Force loop termination
