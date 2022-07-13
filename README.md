@@ -14,3 +14,5 @@
  (Note: The RF receiver (for example 433MHz) needs to be connected to the external interrupt pin)
  
  (Note: For HT6P20A and HT6P20D the code may need to be modified)
+
+ (Note: This code does not support the HCS encoder family, HCS301 etc)
