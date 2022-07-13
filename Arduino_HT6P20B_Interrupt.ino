@@ -452,7 +452,7 @@ bool clear_EEPROM() {
 void read_ppm() { // leave this alone
   static unsigned long counter;
 
-  // 1020 ciclos equivalem a um pulso 510us
+  // 1020 cycles equal a 510us pulse
   // 2000 1000us
   // 20000 10000us
   // x 12000
