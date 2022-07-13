@@ -1,4 +1,4 @@
-# HT6P20B_Arduino_Decoder
+# HT6P20B Arduino Decoder
 
   Arduino decoder HT6P20B (using 2M2 resistor in osc)
   - This code (Arduino) uses timer1 and external interrupt pin.
