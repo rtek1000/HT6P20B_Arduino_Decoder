@@ -59,7 +59,7 @@ volatile unsigned long _width, _width1; // Pulse width
 #define Out_3_pin 6       // Output for relay or LED indicator, button 3
 #define Out_long_pin 7    // Output for relay or LED indicator, long press
 #define Learn_pin 8       // Input for learn function / clear function (erase all)
-#define LED_learn_pin 13  // Output for relay or LED indicator, learn function
+#define LED_learn_pin 13  // Output for relay or LED indicator, learn function / clear function (erase all) / receiver function
 
 bool Learn_pin_old = true;
 
