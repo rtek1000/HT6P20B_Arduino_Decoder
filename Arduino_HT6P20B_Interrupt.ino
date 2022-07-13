@@ -1,6 +1,6 @@
 /*
   Arduino decoder HT6P20B (using 2M2 resistor in osc)
-  - This code (Arduino) uses timer1 and external interrupt pin.
+  - This code (for Arduino) uses timer1 and external interrupt pin.
   - It measures the "pilot period" time (see HT6P20B datasheet for details) and compares if it is within the defined range,
   - If the "pilot period" is within the defined range, it switches to "code period" part (see HT6P20B datasheet for details)
     and takes time measurements at "high level" ("C++" language).
