@@ -374,7 +374,7 @@ bool check_data() {
   byte _data1 = (_data2 >> 8) & 0xFF;  // A8 to A15 bits
   byte _data2 = (_data2 >> 16) & 0x0F; // A15 to A19 bits
 
-  while (E2END > (base_address + 3)) { // E2END least addr of EEPROM
+  while (E2END > (base_address + 3)) { // E2END last addr of EEPROM
     if ((EEPROM.read(base_address) == _data0) and
         (EEPROM.read(base_address + 1) == _data1) and
         (EEPROM.read(base_address + 2) == _data2)) {
@@ -400,7 +400,7 @@ int save_data() {
   byte _data1 = (_data2 >> 8) & 0xFF;  // A8 to A15 bits
   byte _data2 = (_data2 >> 16) & 0x0F; // A15 to A19 bits
 
-  while (E2END > (base_address + 3)) { // E2END least addr of EEPROM
+  while (E2END > (base_address + 3)) { // E2END last addr of EEPROM
     if ((EEPROM.read(base_address) == _data0) and
         (EEPROM.read(base_address + 1) == _data1) and
         (EEPROM.read(base_address + 2) == _data2)) {
@@ -430,7 +430,7 @@ int save_data() {
 bool clear_EEPROM() {
   int base_address = 0;
 
-  while (E2END > base_address) { // E2END least addr of EEPROM
+  while (E2END > base_address) { // E2END last addr of EEPROM
     EEPROM.update(base_address, 0xFF);
 
     base_address++;
@@ -438,7 +438,7 @@ bool clear_EEPROM() {
 
   base_address = 0;
 
-  while (E2END > base_address) { // E2END least addr of EEPROM
+  while (E2END > base_address) { // E2END last addr of EEPROM
     if (EEPROM.read(base_address) != 0xFF) {
       return false;
     }
