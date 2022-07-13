@@ -50,7 +50,7 @@ volatile int x, startbit, startbit1, ctr, dataok, t1, pulse_width, pulse_width1,
 // _data: the code stored from the HT6P20B, all 28 bits, where: 20 bits to "address code" + 4 bits to "data code" + 4 bits to "anti-code".
 // _data2: the code stored from the HT6P20B, only 24 bits, where: 20 bits to "address code" + 4 bits to "data code"
 volatile unsigned long _data, _data2 = 0;
-volatile unsigned long _width, _width1; // Pulse duration (pulse width)
+volatile unsigned long _width, _width1; // Pulse width
 
 #define PPM_Pin 2 // Pin that will receive the digital RF signal. This must be 2 or 3 for UNO (ATmega328p), interrupt pin 0 or 1
 
