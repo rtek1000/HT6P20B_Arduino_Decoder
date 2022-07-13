@@ -34,7 +34,7 @@
   - Added learning function (Input pin and serial command)
   - Added button outputs (Output pin and serial command)
   - Added learn input pin (Input pin and serial command)
-  - Added learn monitoring pin and EEPROM clearing (LED) (Output pin and serial command)
+  - Added learn monitoring pin and EEPROM clearing (LED) (Output pin and serial command) 
   - Added clear EEPROM function (Input pin and serial command)
   Date 13/07/2022 using Arduino 1.8.19
   Allowed public use, but should keep the authorship.
@@ -59,7 +59,7 @@ volatile unsigned long _width, _width1; // Pulse width
 #define Out_3_pin 6       // Output for relay or LED indicator, button 3 (Need to use driver) 
 #define Out_long_pin 7    // Output for relay or LED indicator, long press
 #define Learn_pin 8       // Input for learn function / clear function (erase all)
-#define LED_learn_pin 13  // Output for relay or LED indicator, learn function / clear function (erase all) / receiver function
+#define LED_learn_pin 13  // Output for relay or LED indicator, learn function / clear function (erase all) / receiver function (Need to use driver) 
 
 bool Learn_pin_old = true;
 
