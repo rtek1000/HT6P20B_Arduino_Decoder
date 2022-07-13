@@ -46,7 +46,7 @@
 #define SERIAL_ON 1
 // #define DEBUG_ON 1
 
-volatile int x, startbit, startbit1, ctr, dataok, t1, pulse_width, pulse_width1, pulse_width2, pulse_width3, pulse_width4, bt1, bt2, antcode = 0;
+volatile int startbit, startbit1, ctr, dataok, pulse_width, pulse_width1, pulse_width2, pulse_width3, pulse_width4, antcode = 0;
 // _data: the code stored from the HT6P20B, all 28 bits, where: 20 bits to "address code" + 4 bits to "data code" + 4 bits to "anti-code".
 // _data2: the code stored from the HT6P20B, only 24 bits, where: 20 bits to "address code" + 4 bits to "data code"
 volatile unsigned long _data, _data2 = 0;
